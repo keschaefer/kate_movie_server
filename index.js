@@ -9,6 +9,20 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(cors())
 
+app.get('/', (req, res) => {
+   queries.listAll().then(movies => {res.send(movies)})
+})
+
+app.post('/', (req, res) => {
+   queries.addMovie(req.body).then(movie => {
+      res.send(movie)
+   })
+})
+
+app.delete('/:id', (req, res) => {
+   queries.deleteMovie(req.params.id).then(res.send({message: 'movie deleted'}))
+})
+
 app.use ((req, res) => {
    res.status(404).json({error: {message: 'data not found'}})
 })
