@@ -1,8 +1,5 @@
-// Update with your config settings.
-
 module.exports = {
-
-  development: {
+    development: {
     client: 'pg',
     connection: 'postgresql://localhost/kate_movies'
   },
@@ -11,5 +8,4 @@ module.exports = {
     client: 'pg',
     connection: process.env.DATABASE_URL
   }
-
 }
