@@ -1,4 +1,4 @@
-exports.seed = function(knex, Promise) {
+exports.seed = (knex, Promise) => {
   return knex('movies').del()
     .then(function () {
       return knex('movies').insert([
@@ -37,6 +37,6 @@ exports.seed = function(knex, Promise) {
           rating: 5,
           poster_url: 'https://m.media-amazon.com/images/M/MV5BMGM4M2Q5N2MtNThkZS00NTc1LTk1NTItNWEyZjJjNDRmNDk5XkEyXkFqcGdeQXVyMjA0MDQ0Mjc@._V1_SY1000_CR0,0,676,1000_AL_.jpg'
         }, 
-      ]);
-    });
-};
+    ])
+  })
+}
