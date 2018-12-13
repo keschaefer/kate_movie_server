@@ -5,7 +5,6 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const queries = require('./queries.js')
 const listener = () => `Listening on port ${port}!`
-const favicon = require('express-favicon')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
@@ -30,9 +29,8 @@ app.put('/:id', (req, res) => {
 app.delete('/:id', (req, res) => {
    queries.deleteMovie(req.params.id).then(response => res.send({message: 'movie deleted'}))
 })
-app.get('/favicon.ico', (req, res) => res.status(204))
 
-// app.use(favicon('icons8-cherry-24.png'))
+app.get('/favicon.ico', (req, res) => res.status(204))
 
 app.use ((req, res) => {
    res.status(404).json({error: {message: 'data not found'}})
